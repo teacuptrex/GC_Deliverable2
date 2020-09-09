@@ -6,9 +6,9 @@ public class FlipCounter {
 		String headsOrTailsGuess = "";
 		int numberOfFlips = 0;
 		int correctCount = 0;
-		int head;
+		int head;//it seams like there may be *many* ways to do this, chose this one since it came up first via google, but there are probably better ways of doing this comparison
 		int tail;
-		int i = 0;
+		int i = 0; //created to compare loop through number of flips
 		
 		Scanner scn = new Scanner(System.in);
 		System.out.print("Please enter a guess, heads or tails: ");
@@ -21,7 +21,7 @@ public class FlipCounter {
 		
 		if (head == 0) {
 			while (numberOfFlips > i) {
-				int rand = (int) Math.round(Math.random());
+				int rand = (int) Math.round(Math.random());//rounded the double to cast to int, still will be randomly generated
 				if (rand % 2 == 0.0) {
 					System.out.println("heads");
 					correctCount++;
@@ -44,11 +44,11 @@ public class FlipCounter {
 			}
 		}
 			} else {
-			System.out.println("Invalid guess, please guess heads or tails.");
+			System.out.println("Invalid guess, please guess heads or tails.");//typo reminder, does not stop later exception if typo is entered
 		}
 		
 		System.out.println("Your guess, " + headsOrTailsGuess + ", came up " + correctCount + " time(s).");
-		System.out.println("That's " + correctCount * 100 / i + "%.");
+		System.out.println("That's " + correctCount * 100 / numberOfFlips + "%.");//*100 first because correctCount / numberOfFlips is less than 1, which rounds up to 0 for variable type int
 		scn.close();
 	}
 		}
